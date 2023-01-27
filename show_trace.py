@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import plotly.express as px
+import plotly.graph_objects as go
 import numpy as np
 import random as rd
 import argparse
@@ -74,7 +75,6 @@ if __name__ == "__main__":
       y.append(yy)
   
   np_rows = np.array(rows, dtype=np.uint8)
-  fig = px.imshow (np_rows)
   
   ny = np_rows.shape[0]
   nx = np_rows.shape[1]
@@ -88,8 +88,10 @@ if __name__ == "__main__":
           tmp.append(str(ts) + ": " + level_func)
       funcnames.append(tmp)
            
-  foo = fig.update(data=[{'customdata': funcnames,
+  fig = px.imshow (np_rows)
+  fig.update(data=[{'customdata': funcnames,
       'hovertemplate': '%{customdata}'}])
+  fig.add_trace(go.Scatter(x=[i for i in range(args.nreadout)], y=[rd.randint(0,10) for i in range(args.nreadout)]))
   fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"))
   fig.update_xaxes (side="top")
   fig.show(renderer=args.renderer)

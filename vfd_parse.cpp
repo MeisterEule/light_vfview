@@ -17,24 +17,6 @@ typedef enum {
 } sample_kind;
 
 typedef struct {
-   int vfd_version;
-   char *package_string;
-   char *datestr_start;
-   char *datestr_end;
-   long long interval;
-   int nprocesses;
-   int processID;
-   int nthreads;
-   double runtime;
-   unsigned int function_samplecount;
-   unsigned int message_samplecount;
-   unsigned int nstacks;
-   long int samples_offset;
-   long int stacks_offset;
-   long int threadtree_offset;
-} vfd_header_t;
-
-typedef struct {
    int stack_id;
    long long ts_first;
    long long ts_last; 

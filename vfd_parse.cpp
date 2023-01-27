@@ -32,7 +32,6 @@ typedef struct {
    long int samples_offset;
    long int stacks_offset;
    long int threadtree_offset;
-   // TODO: hardware counters
 } vfd_header_t;
 
 typedef struct {
@@ -45,7 +44,6 @@ typedef struct {
 typedef struct {
    PyObject_HEAD
    FILE *vfd_fp = NULL;
-   //char *vfd_filename = NULL;
    int vfd_version;
    char *package_string = NULL;
    char *datestr_start = NULL;
@@ -272,7 +270,6 @@ static PyObject *get_timestamps (vfd_parse_t *self, PyObject *args, PyObject *kw
 
 
    // If no readout value is supplied, readout all values
-   printf ("Fill dictionary!\n");
    if (n_readout < 0) n_readout = n_return_samples;
    PyObject *ret = PyDict_New();
 

@@ -45,9 +45,7 @@ if __name__ == "__main__":
   vfdParser = vfd_parse.vfdParser(args.filename)
   vfdParser.show_header()
   
-  print ("get timestamps")
   timestamps = vfdParser.get_timestamps (merge=False, n_readout=args.nreadout)
-  print ("get stackstrings")
   stacks = vfdParser.get_stackstrings (args.filename)
   
   stackcolors = {}
